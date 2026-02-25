@@ -1,0 +1,10 @@
+{
+  "title": "Your Product Name",
+  "pitch": "A short and compelling description of the value your product delivers.",
+  "price": "$9",
+  "ctaLabel": "Pre-order now",
+  "lemonSqueezyProductId": "YOUR_LEMONSQUEEZY_PRODUCT_ID",
+  "lemonSqueezyStoreId": "YOUR_LEMONSQUEEZY_STORE_ID",
+  "lemonSqueezyTestMode": true,
+  "metaDescription": "Pre-order your product today at a special launch price."
+}
