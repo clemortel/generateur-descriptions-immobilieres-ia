@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PropAI - AI Real Estate Property Description Generator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f2b90d",
+                        "background-light": "#f8f8f5",
+                        "background-dark": "#1a1814",
+                        "neutral-dark": "#2a2720",
+                        "accent-gold": "#d4a017",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+  <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased overflow-x-hidden">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-neutral-dark bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="mx-auto max-w-7xl px-6 lg:px-10 flex h-20 items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-background-dark">
+<span class="material-symbols-outlined text-2xl font-bold">temp_preferences_custom</span>
+</div>
+<span class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white uppercase">PropAI</span>
+</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="#features">Features</a>
+<a class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="#testimonials">Testimonials</a>
+<a class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="#pricing">Pricing</a>
+<a class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="#faq">FAQ</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden sm:flex text-sm font-bold text-slate-900 dark:text-white px-4 py-2 hover:opacity-80">Log In</button>
+<button class="flex items-center justify-center rounded-lg bg-primary px-6 py-2.5 text-sm font-bold text-background-dark shadow-lg shadow-primary/20 hover:scale-105 transition-transform">
+                        Get Started
+                    </button>
+</div>
+</div>
+</header>
+<main class="flex-1">
+<!-- Hero Section -->
+<section class="relative overflow-hidden pt-16 pb-24 lg:pt-32 lg:pb-40">
+<div class="mx-auto max-w-7xl px-6 lg:px-10">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="flex flex-col gap-8 max-w-2xl">
+<div class="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-bold tracking-wider text-primary uppercase">
+                                New: GPT-4o Powered Generation
+                            </div>
+<h1 class="text-5xl lg:text-7xl font-extrabold leading-[1.1] text-slate-900 dark:text-white">
+                                Generate Stunning <span class="text-primary">Property Descriptions</span> in Seconds
+                            </h1>
+<p class="text-lg lg:text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
+                                Unlock the power of AI to craft compelling, high-converting real estate listings instantly. Save hours of writing and stand out in a crowded market.
+                            </p>
+<div class="flex flex-col sm:flex-row gap-4 mt-4">
+<button class="flex items-center justify-center rounded-xl bg-primary px-8 py-4 text-lg font-bold text-background-dark shadow-xl shadow-primary/20 hover:bg-accent-gold transition-all">
+                                    Get Started Now
+                                </button>
+<button class="flex items-center justify-center rounded-xl border-2 border-slate-200 dark:border-neutral-dark px-8 py-4 text-lg font-bold text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-neutral-dark transition-all">
+                                    Watch Demo
+                                </button>
+</div>
+<div class="flex items-center gap-4 mt-4">
+<div class="flex -space-x-3">
+<div class="h-10 w-10 rounded-full border-2 border-background-dark bg-slate-300" data-alt="Avatar of a real estate agent"></div>
+<div class="h-10 w-10 rounded-full border-2 border-background-dark bg-slate-400" data-alt="Avatar of a real estate agent"></div>
+<div class="h-10 w-10 rounded-full border-2 border-background-dark bg-slate-500" data-alt="Avatar of a real estate agent"></div>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 font-medium">Trusted by 2,000+ top agents globally</p>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-primary/50 to-accent-gold/30 blur-2xl opacity-20 group-hover:opacity-30 transition-opacity"></div>
+<div class="relative rounded-2xl border border-slate-200 dark:border-neutral-dark bg-white/5 dark:bg-neutral-dark/40 backdrop-blur-xl p-4 lg:p-6 shadow-2xl">
+<div class="aspect-video w-full rounded-xl overflow-hidden bg-neutral-dark/50" data-alt="Modern luxury interior living room with high ceilings" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBxakpLDECHsI6KQPIMPKLkGO9jO9XncPVWYL9b-cJayjzWxU_7z7zedDnK7cXTb3kLoqDKrTdkgyeMfzWNqrBoLHKcSljCeq8WbaBNPvAmipR_m_MRcnSeOw7AS0kar18lTanvtss3lpMJF2Keb1wVPqxR2bOpwYau0QQowMahdrILmyABjBb9K6P6jZD2gBsvnwkPpLH0YlWQxy3CP6ggThCDmgXFxLsFRWjD-jIN0Nvh0iz_zv9cP8lJmvTaOI5TWEMWnCf4eqU"); background-size: cover; background-position: center;'>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 to-transparent flex flex-col justify-end p-8">
+<div class="bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/10">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+<span class="text-xs font-bold text-white uppercase tracking-widest">AI Result</span>
+</div>
+<p class="text-sm text-slate-100 italic">"Step into elegance with this breathtaking contemporary oasis. Flooded with natural light and featuring premium finishes..."</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Section -->
+<section class="py-24 bg-slate-50 dark:bg-neutral-dark/20" id="features">
+<div class="mx-auto max-w-7xl px-6 lg:px-10">
+<div class="text-center max-w-3xl mx-auto mb-20">
+<h2 class="text-4xl font-bold tracking-tight text-slate-900 dark:text-white mb-6">Why Choose Our AI?</h2>
+<p class="text-lg text-slate-600 dark:text-slate-400">Designed specifically for real estate professionals who want to close deals faster and eliminate writer's block.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Feature Card 1 -->
+<div class="group relative rounded-2xl border border-slate-200 dark:border-neutral-dark bg-white dark:bg-background-dark p-10 hover:border-primary/50 transition-all">
+<div class="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-3xl">bolt</span>
+</div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Instant Generation</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">Enter a few basic property details and get a professional, high-quality description in under 5 seconds.</p>
+</div>
+<!-- Feature Card 2 -->
+<div class="group relative rounded-2xl border border-slate-200 dark:border-neutral-dark bg-white dark:bg-background-dark p-10 hover:border-primary/50 transition-all">
+<div class="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-3xl">search_check</span>
+</div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">SEO Optimized</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">Descriptions are engineered to rank higher on property portals and search engines, increasing your visibility.</p>
+</div>
+<!-- Feature Card 3 -->
+<div class="group relative rounded-2xl border border-slate-200 dark:border-neutral-dark bg-white dark:bg-background-dark p-10 hover:border-primary/50 transition-all">
+<div class="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-3xl">language</span>
+</div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Multi-Language</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">Reach global buyers with perfect translations and localized real estate terminology in 25+ languages.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="py-24" id="pricing">
+<div class="mx-auto max-w-7xl px-6 lg:px-10">
+<div class="flex flex-col lg:flex-row items-center gap-16">
+<div class="flex-1 max-w-xl">
+<h2 class="text-4xl font-bold tracking-tight text-slate-900 dark:text-white mb-6">Simple, Honest Pricing</h2>
+<p class="text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
+                                No recurring monthly fees. No hidden costs. Pay once and get lifetime access to the world's most advanced property AI.
+                            </p>
+<ul class="space-y-4 mb-10">
+<li class="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<span>Unlimited High-Quality Descriptions</span>
+</li>
+<li class="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<span>Customizable Tone of Voice</span>
+</li>
+<li class="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<span>24/7 VIP Support Access</span>
+</li>
+</ul>
+</div>
+<div class="w-full lg:w-auto flex-none">
+<div class="relative rounded-3xl border border-primary/30 bg-white dark:bg-neutral-dark/30 p-10 lg:p-12 shadow-2xl backdrop-blur-lg lg:min-w-[420px]">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-xs font-bold uppercase tracking-widest text-background-dark">
+                                    Best Value Offer
+                                </div>
+<div class="text-center">
+<h3 class="text-2xl font-bold text-slate-900 dark:text-white">Lifetime Deal</h3>
+<div class="mt-6 flex items-baseline justify-center gap-2">
+<span class="text-6xl font-black tracking-tight text-slate-900 dark:text-white">$49</span>
+<span class="text-lg font-medium text-slate-500">one-time</span>
+</div>
+<p class="mt-4 text-sm text-slate-500 dark:text-slate-400 italic">Limited time only. Price increases soon.</p>
+<button class="mt-8 w-full rounded-xl bg-primary py-4 text-lg font-bold text-background-dark hover:bg-accent-gold transition-colors shadow-lg shadow-primary/20">
+                                        Get Lifetime Access
+                                    </button>
+<div class="mt-8 grid grid-cols-2 gap-4 text-left border-t border-slate-200 dark:border-neutral-dark pt-8">
+<div class="flex flex-col gap-1">
+<span class="text-2xl font-bold text-slate-900 dark:text-white">100%</span>
+<span class="text-xs text-slate-500 uppercase font-bold">Safe Secure</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-2xl font-bold text-slate-900 dark:text-white">30 Day</span>
+<span class="text-xs text-slate-500 uppercase font-bold">Money Back</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section class="py-24 bg-slate-50 dark:bg-neutral-dark/20" id="testimonials">
+<div class="mx-auto max-w-7xl px-6 lg:px-10">
+<h2 class="text-3xl font-bold text-center text-slate-900 dark:text-white mb-16">Trusted by Top Agents</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<div class="rounded-2xl bg-white dark:bg-background-dark border border-slate-200 dark:border-neutral-dark p-8">
+<div class="flex items-center gap-1 text-primary mb-4">
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+</div>
+<p class="text-slate-600 dark:text-slate-400 mb-8 italic leading-relaxed">
+                                "PropAI has fundamentally changed how I list homes. I used to spend hours struggling with wording. Now, I have a professional description in seconds that my clients love."
+                            </p>
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-full bg-slate-200 overflow-hidden" data-alt="Portrait of a professional male real estate agent" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBmenhlRD5V8xODJT9qABE2B9NeBpwjVRi5kIqdDhL0VdO4L7qI1IalG346IIsLTNlrVH2ZfraKKpwjgoABUiBCLHIDXqzAT8SeHvU-T9zttzhn0uJIiUYjnX3-QEJ1rScW-xHkBrTCv8eXwu75EUPJV6roAkT5pvVFtBjDIpYy0geP4-kKWti70p0aTkS8z_QugpUdt38nDC5yPyP0LGejU-VwwZFAQzAyaYhyhlviAHa2o6zNyvAaQgTvwLVunDYJSyd40mSjNXw"); background-size: cover;'></div>
+<div>
+<p class="font-bold text-slate-900 dark:text-white">Michael Roberts</p>
+<p class="text-xs text-primary font-bold uppercase tracking-wider">Luxury Estates Realty</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="rounded-2xl bg-white dark:bg-background-dark border border-slate-200 dark:border-neutral-dark p-8">
+<div class="flex items-center gap-1 text-primary mb-4">
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+</div>
+<p class="text-slate-600 dark:text-slate-400 mb-8 italic leading-relaxed">
+                                "The SEO optimization is the real winner here. My listings are getting 40% more views on Zillow since I started using PropAI's generated copy."
+                            </p>
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-full bg-slate-200 overflow-hidden" data-alt="Portrait of a successful female real estate agent" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCe5Pbbtae7yQ5xMn9n-ClWdEIk_f9IDiZ6yi7sJiZ0Eq6xURqDmF-hJldfQO6H2l9N6vesnbxctQD99LbAZLttyloZ2XzjFNCLe8ItRHMl9Fsiqzv7n83VKMfZHo2fzmTxObN-cQGh6ndHFYTgH62Y2C-EVt3B7g9twQ5MNW1vNhNcYKjGDYTfIxeORRBDJrI0bBgMBwjQay81FKC0QsliOMeN43svVMsC5KxJmiAabJkuod4Fyv9PksrR61IaLGaAyWm4gNMdKxk"); background-size: cover;'></div>
+<div>
+<p class="font-bold text-slate-900 dark:text-white">Sarah Jenkins</p>
+<p class="text-xs text-primary font-bold uppercase tracking-wider">Modern Living Group</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="rounded-2xl bg-white dark:bg-background-dark border border-slate-200 dark:border-neutral-dark p-8">
+<div class="flex items-center gap-1 text-primary mb-4">
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+</div>
+<p class="text-slate-600 dark:text-slate-400 mb-8 italic leading-relaxed">
+                                "Incredible value for a one-time fee. I was skeptical about AI, but the tone of voice is surprisingly human and very persuasive."
+                            </p>
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-full bg-slate-200 overflow-hidden" data-alt="Portrait of a confident real estate broker" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBQcyRLQ7H0fH-IUl7K3ki3FNjRdmKDo3CVSWH8lT954j-hIv5QFzCL9Pk4KNR_QbMuOax7z-682iLlCNWLl7SyQj46A4XGKv0Xs7zOGSvCgT2UPGoWg3XTCO9c1Qi-7DImjVjCbIdKUoV7vL4Uxh8T6dO97Cp7c2_BZJ5IWPMg3QS9yUgtj6IxBJp8Hd3UsZnVnzYO9nXRNb-MaZ249GzPz1rZgdmcWYza_UuRbs9Ydb9woKMgrF0v44okZU3Av-SB7OClLGL4vVc"); background-size: cover;'></div>
+<div>
+<p class="font-bold text-slate-900 dark:text-white">David Chen</p>
+<p class="text-xs text-primary font-bold uppercase tracking-wider">Coastal Properties</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-24" id="faq">
+<div class="mx-auto max-w-4xl px-6 lg:px-10">
+<h2 class="text-3xl font-bold text-center text-slate-900 dark:text-white mb-12">Frequently Asked Questions</h2>
+<div class="space-y-4">
+<div class="rounded-xl border border-slate-200 dark:border-neutral-dark p-6 bg-white dark:bg-background-dark">
+<button class="flex w-full items-center justify-between text-left">
+<span class="font-bold text-slate-900 dark:text-white">Is it really a one-time payment?</span>
+<span class="material-symbols-outlined text-primary">expand_more</span>
+</button>
+<div class="mt-4 text-slate-600 dark:text-slate-400">
+                                Yes! For a limited time, we are offering lifetime access for a single payment of $49. No subscriptions, no monthly bills ever.
+                            </div>
+</div>
+<div class="rounded-xl border border-slate-200 dark:border-neutral-dark p-6 bg-white dark:bg-background-dark">
+<button class="flex w-full items-center justify-between text-left">
+<span class="font-bold text-slate-900 dark:text-white">What property types does it support?</span>
+<span class="material-symbols-outlined text-primary">expand_more</span>
+</button>
+<div class="mt-4 text-slate-600 dark:text-slate-400">
+                                Our AI is trained on everything from residential single-family homes and luxury condos to commercial offices and industrial land.
+                            </div>
+</div>
+<div class="rounded-xl border border-slate-200 dark:border-neutral-dark p-6 bg-white dark:bg-background-dark">
+<button class="flex w-full items-center justify-between text-left">
+<span class="font-bold text-slate-900 dark:text-white">Can I customize the tone?</span>
+<span class="material-symbols-outlined text-primary">expand_more</span>
+</button>
+<div class="mt-4 text-slate-600 dark:text-slate-400">
+                                Absolutely. You can choose from tones like Professional, Enthusiastic, Minimalist, or Luxury to match your brand style.
+                            </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-24 relative overflow-hidden">
+<div class="mx-auto max-w-7xl px-6 lg:px-10">
+<div class="relative rounded-3xl bg-primary px-10 py-16 lg:py-24 text-center overflow-hidden">
+<div class="absolute top-0 right-0 -mr-20 -mt-20 h-64 w-64 rounded-full bg-white/20 blur-3xl"></div>
+<div class="absolute bottom-0 left-0 -ml-20 -mb-20 h-64 w-64 rounded-full bg-accent-gold/40 blur-3xl"></div>
+<div class="relative z-10 max-w-2xl mx-auto">
+<h2 class="text-4xl lg:text-5xl font-black text-background-dark mb-6">Ready to transform your listings?</h2>
+<p class="text-lg text-background-dark/80 font-medium mb-10">Join thousands of agents using PropAI to win more listings and save valuable time.</p>
+<button class="rounded-xl bg-background-dark px-10 py-5 text-xl font-bold text-white shadow-2xl hover:scale-105 transition-transform">
+                                Start Generating Now
+                            </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="border-t border-slate-200 dark:border-neutral-dark bg-white dark:bg-background-dark py-12">
+<div class="mx-auto max-w-7xl px-6 lg:px-10">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-12 mb-12">
+<div class="col-span-2">
+<div class="flex items-center gap-3 mb-6">
+<div class="flex h-8 w-8 items-center justify-center rounded bg-primary text-background-dark">
+<span class="material-symbols-outlined text-sm font-bold">temp_preferences_custom</span>
+</div>
+<span class="text-lg font-extrabold tracking-tight text-slate-900 dark:text-white uppercase">PropAI</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 max-w-sm mb-6">The ultimate AI writing companion for real estate professionals. Built with cutting-edge LLMs and real estate marketing expertise.</p>
+<div class="flex gap-4">
+<a class="h-10 w-10 rounded-full bg-slate-100 dark:bg-neutral-dark flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-primary" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="h-10 w-10 rounded-full bg-slate-100 dark:bg-neutral-dark flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-primary" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-6 uppercase tracking-widest text-xs">Product</h4>
+<ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">Features</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Pricing</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">API Access</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Integrations</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-6 uppercase tracking-widest text-xs">Support</h4>
+<ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-slate-100 dark:border-neutral-dark pt-8 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-sm text-slate-500 dark:text-slate-500">© 2024 PropAI SaaS. All rights reserved.</p>
+<p class="text-sm text-slate-400 dark:text-slate-600">Variant 1 of 2. Designed for Real Estate Innovation.</p>
+</div>
+</div>
+</footer>
+</div>
+</body></html>
