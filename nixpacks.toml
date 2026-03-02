@@ -2,8 +2,11 @@
 [phases.setup]
 nixPkgs = ["nodejs_22"]
 
-[phases.build]
+[phases.install]
 cmds = ["npm i -g serve"]
+
+[phases.build]
+cmds = []
 
 [start]
 cmd = "serve public -l 3000"
